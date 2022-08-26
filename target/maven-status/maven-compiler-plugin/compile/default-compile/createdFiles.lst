@@ -1,5 +1,5 @@
-connect\SmallTool.class
-connect\Main.class
-connect\VerticJdbcPressTest.class
-connect\ThreadPollUtil.class
-connect\TestRunnable.class
+Main.class
+TestRunnable.class
+SmallTool.class
+ThreadPollUtil.class
+VerticJdbcPressTest.class

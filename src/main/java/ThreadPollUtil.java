@@ -1,5 +1,3 @@
-package connect;
-
 import java.util.concurrent.*;
 
 public class ThreadPollUtil {

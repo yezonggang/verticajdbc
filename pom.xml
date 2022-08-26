@@ -8,16 +8,23 @@
     <artifactId>verticajdbc</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
-        <dependency>
-            <groupId>com.vertica.jdbc</groupId>
-            <artifactId>vertica-jdbc</artifactId>
-            <version>12.0.0-0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.vertica.jdbc</groupId>-->
+<!--            <artifactId>vertica-jdbc</artifactId>-->
+<!--            <version>12.0.0-0</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.14</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.vertica.jdbc</groupId>  <!-- 库名称，也可以自定义 -->
+            <artifactId>vertica-jdbc</artifactId>    <!--库名称，也可以自定义-->
+            <version>12.0.0-0</version> <!--版本号-->
+            <scope>system</scope> <!--作用域-->
+            <systemPath>${basedir}\src\lib\vertica-jdbc-12.0.0-0.jar</systemPath> <!--项目根目录下的lib文件夹下-->
         </dependency>
     </dependencies>
     <build>
@@ -31,7 +38,33 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <classesDirectory>${basedir}\src\lib</classesDirectory>
+                    <archive>
+                        <manifest>
+                            <!-- 主函数的入口 -->
+                            <mainClass>Main</mainClass>
+                            <!-- 打包时 MANIFEST.MF文件不记录的时间戳版本 -->
+<!--                            <useUniqueVersions>false</useUniqueVersions>-->
+                            <addClasspath>true</addClasspath>
+<!--                            <classpathPrefix>${basedir}\src\lib</classpathPrefix>-->
+                        </manifest>
+                    </archive>
+
+                </configuration>
+            </plugin>
+
         </plugins>
+
+        <resources>
+            <resource><directory>lib</directory>
+            <includes><include>**/*.jar</include></includes>
+            </resource>
+        </resources>
+
     </build>
 
 

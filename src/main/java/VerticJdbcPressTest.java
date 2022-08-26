@@ -1,14 +1,7 @@
-package connect;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.Properties;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
 
 @Data
 @AllArgsConstructor

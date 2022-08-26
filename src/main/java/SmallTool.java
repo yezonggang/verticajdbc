@@ -1,5 +1,3 @@
-package connect;
-
 import java.util.StringJoiner;
 
 public class SmallTool {
