@@ -90,6 +90,7 @@ public class JdbcRunnable implements Runnable {
                         LoggerSmallUtil.printTimeAndThread("end to insert 500 datas");
                     }
                     i++;
+                    //System.out.println(String.format("batch:%s",i));
                 }
 
             } catch (SQLException e) {
