@@ -9,6 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/**
+ * @author y25958
+ */
 @Data
 public class JdbcRunnable implements Runnable {
 
@@ -23,7 +26,6 @@ public class JdbcRunnable implements Runnable {
 
     @Override
         public void run() {
-            Connection conn;
             try {
                 String sql = String.format("insert into %s(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,a2,b2,c2,d2,e2,f2,g2,h2,i2,j2,k2,l2,m2,n2,o2,p2,q2,r2,s2,t2,u2,v2,w2,x2,y2,z2) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",tableName);
                 PreparedStatement ps = connection.prepareStatement(sql);

@@ -21,6 +21,7 @@ public class VerticJdbcPressTest {
 
 
     public void test() {
+        System.out.println(String.format("-----begin to create threadPool for table:%s",tableName));
         ExecutorService threadPool = ThreadPollUtil.createThreadPoll(threadPollNum);
         JdbcRunnable testRunnable = new JdbcRunnable(tableName, connection);
 
