@@ -26,6 +26,17 @@
             <scope>system</scope> <!--作用域-->
             <systemPath>${basedir}\src\lib\vertica-jdbc-12.0.0-0.jar</systemPath> <!--项目根目录下的lib文件夹下-->
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.18</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.maven.plugins</groupId>-->
+<!--            <artifactId>maven-assembly-plugin</artifactId>-->
+<!--            <version>3.8.0</version>-->
+<!--        </dependency>-->
+
     </dependencies>
     <build>
         <plugins>
@@ -42,7 +53,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
-                    <classesDirectory>${basedir}\src\lib</classesDirectory>
+<!--                    <classesDirectory>${basedir}\src\lib</classesDirectory>-->
                     <archive>
                         <manifest>
                             <!-- 主函数的入口 -->
@@ -53,10 +64,8 @@
 <!--                            <classpathPrefix>${basedir}\src\lib</classpathPrefix>-->
                         </manifest>
                     </archive>
-
                 </configuration>
             </plugin>
-
         </plugins>
 
         <resources>

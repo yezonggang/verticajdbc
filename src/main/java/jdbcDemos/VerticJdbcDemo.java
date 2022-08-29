@@ -1,5 +1,5 @@
 /*
-package connect;
+package jdbcDemos;
 import java.sql.*;
 import java.util.Properties;
 import com.vertica.jdbc.*;
@@ -15,6 +15,7 @@ public class VerticJdbcDemo {
         //myProp.put("ReadOnly", "true");
         Connection conn;
         try {
+            //DriverManager连接
             conn = DriverManager.getConnection("jdbc:vertica://10.121.198.45:5433/dbadmin",myProp);
             String sql = "insert into yzg(name) values(?)";
             PreparedStatement ps = conn.prepareStatement(sql);

@@ -1,6 +1,8 @@
+package utils;
+
 import java.util.StringJoiner;
 
-public class SmallTool {
+public class LoggerSmallUtil {
 
     public static void sleepMillis(long millis) {
         try {
