@@ -1,12 +1,6 @@
 import jdbcDemos.VerticJdbcPressTest;
 import utils.JDBCUtil;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
         // 针对表名做个循环:test1 表，test2表，见表语句在resources中的test.sql，52*65000的大表
