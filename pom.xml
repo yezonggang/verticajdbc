@@ -8,24 +8,24 @@
     <artifactId>verticajdbc</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>com.vertica.jdbc</groupId>-->
-<!--            <artifactId>vertica-jdbc</artifactId>-->
-<!--            <version>12.0.0-0</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.vertica.jdbc</groupId>
+            <artifactId>vertica-jdbc</artifactId>
+            <version>12.0.0-0</version>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.14</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>com.vertica.jdbc</groupId>  <!-- 库名称，也可以自定义 -->
-            <artifactId>vertica-jdbc</artifactId>    <!--库名称，也可以自定义-->
-            <version>12.0.0-0</version> <!--版本号-->
-            <scope>system</scope> <!--作用域-->
-            <systemPath>${basedir}\src\lib\vertica-jdbc-12.0.0-0.jar</systemPath> <!--项目根目录下的lib文件夹下-->
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.vertica.jdbc</groupId>  &lt;!&ndash; 库名称，也可以自定义 &ndash;&gt;-->
+<!--            <artifactId>vertica-jdbc</artifactId>    &lt;!&ndash;库名称，也可以自定义&ndash;&gt;-->
+<!--            <version>12.0.0-0</version> &lt;!&ndash;版本号&ndash;&gt;-->
+<!--            <scope>system</scope> &lt;!&ndash;作用域&ndash;&gt;-->
+<!--            <systemPath>${basedir}\src\lib\vertica-jdbc-12.0.0-0.jar</systemPath> &lt;!&ndash;项目根目录下的lib文件夹下&ndash;&gt;-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
@@ -66,13 +66,41 @@
                     </archive>
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>Main</mainClass><!--这里改成自己的启动位置（主类位置）-->
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
 
+        <!--打包时将resource下的文件一起打包-->
         <resources>
-            <resource><directory>lib</directory>
-            <includes><include>**/*.jar</include></includes>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/**</include>
+                </includes>
+                <filtering>false</filtering>
             </resource>
         </resources>
+
 
     </build>
 
