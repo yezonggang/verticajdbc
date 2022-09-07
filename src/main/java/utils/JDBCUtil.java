@@ -24,12 +24,6 @@ public class JDBCUtil {
         DataSource datasouce  = null;
         Connection conn = null;
         try {
-/*            DruidDataSource dataSource = new DruidDataSource();
-            dataSource.setDriverClassName("com.vertica.jdbc.Driver");
-            dataSource.setUrl("jdbc:vertica://10.121.198.45:5433/dbadmin");
-            dataSource.setUsername("dbadmin");
-            dataSource.setPassword("passwd");
-            conn = dataSource.getConnection(1000);*/
             datasouce = DruidDataSourceFactory.createDataSource(properties);
             conn = datasouce.getConnection();
         } catch (SQLException e) {

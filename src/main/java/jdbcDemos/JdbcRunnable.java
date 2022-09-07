@@ -82,7 +82,7 @@ public class JdbcRunnable implements Runnable {
                     }
                     //1、"攒"sql
                     ps.addBatch();
-                    if (i%500==0){
+                    if (i%1000==0){
                         //2、执行batch
                         ps.executeBatch();
                         //3、清空batch

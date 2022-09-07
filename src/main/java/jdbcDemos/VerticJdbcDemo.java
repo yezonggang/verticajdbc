@@ -1,4 +1,3 @@
-/*
 package jdbcDemos;
 import java.sql.*;
 import java.util.Properties;
@@ -36,4 +35,3 @@ public class VerticJdbcDemo {
         }
     }
 }
-*/
